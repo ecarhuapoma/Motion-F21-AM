@@ -408,6 +408,12 @@ body h1, body h2, body h3, body h4 {
 ============= */
 button {
   text-decoration: none;
+  background-color: #ff6224;
+  transition: 0.25s;
+}
+button:hover {
+  color: #ffbe32;
+  background-color: #e25720;
 }
 
 /* =============
@@ -451,11 +457,11 @@ header ul #cone {
   grid-area: cream;
   background-size: contain;
   background-repeat: no-repeat;
-  height: 150%;
+  height: 200%;
   width: 100%;
   background-position: center;
   z-index: 10;
-  margin-top: 30px;
+  margin-top: -30px;
   background-image: url(/deploy/img/cone.jpg);
 }
 header ul #cream {
