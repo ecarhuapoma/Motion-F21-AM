@@ -1,5 +1,4 @@
 @charset 'utf-8';
-
 // Helpers Styles
 @import "helpers/_mixins";
 @import "helpers/_variables";
@@ -19,5 +18,7 @@
 @import "layout/_footer";
 
 // Sections Styles
+@import "sections/_navi";
+@import "sections/_body";
 
 
