@@ -1,7 +1,11 @@
 // import { gsap } from "gsap";
 import { gsap } from "gsap";
 
+const preloadTL = gsap.timeline();
 const mainTL = gsap.timeline();
+
+preloadTL.from("#preloader div",{duration:.4,alpha:0,scale:.5})
+
 
 mainTL.from("header ul #open",{duration:.1,alpha:0})
 .from("header ul #open h1",{duration:.3,alpha:0})
