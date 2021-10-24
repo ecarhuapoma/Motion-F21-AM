@@ -1,5 +1,7 @@
 // import { gsap } from "gsap";
 import { gsap } from "gsap";
+import { GSDevTools } from "gsap/GSDevTools";
+gsap.registerPlugin(GSDevTools);
 
 // //instantiates the timelines
 // const preloadTL = gsap.timeline();
@@ -37,3 +39,5 @@ mainTL.add(coneCreate())
 // const storeTL = gsap.timeline({repeat:-1});
 // storeTL.from("#open",{duration:120,backgroundPosition: "-2247px 0px", ease:"none"});
 
+
+GSDevTools.create();
