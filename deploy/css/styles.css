@@ -506,103 +506,31 @@ header ul #open h1 {
   background-color: #fff;
 }
 
-#cone1 {
+.cone {
   visibility: hidden;
 }
 
-#cone2 {
+.vanilla {
   visibility: hidden;
 }
 
-#cone3 {
+.choc {
   visibility: hidden;
 }
 
-#cone4 {
+.stack {
   visibility: hidden;
 }
 
-#cone5 {
+.straw {
   visibility: hidden;
 }
 
-#cone6 {
+.cher {
   visibility: hidden;
 }
 
-#cone7 {
-  visibility: hidden;
-}
-
-#cone8 {
-  visibility: hidden;
-}
-
-#cone9 {
-  visibility: hidden;
-}
-
-#cone10 {
-  visibility: hidden;
-}
-
-#cream1 {
-  visibility: hidden;
-}
-
-#cream2 {
-  visibility: hidden;
-}
-
-#cream3 {
-  visibility: hidden;
-}
-
-#vanilla1 {
-  visibility: hidden;
-}
-
-#vanilla2 {
-  visibility: hidden;
-}
-
-#vanilla3 {
-  visibility: hidden;
-}
-
-#chocolate1 {
-  visibility: hidden;
-}
-
-#chocolate2 {
-  visibility: hidden;
-}
-
-#strawberry1 {
-  visibility: hidden;
-}
-
-#strawberry2 {
-  visibility: hidden;
-}
-
-#strawberry3 {
-  visibility: hidden;
-}
-
-#cherry-plop1 {
-  visibility: hidden;
-}
-
-#cherry-plop1 {
-  visibility: hidden;
-}
-
-#cherry {
-  visibility: hidden;
-}
-
-#done {
+.done {
   visibility: hidden;
 }
 

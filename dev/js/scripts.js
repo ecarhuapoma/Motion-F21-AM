@@ -9,8 +9,9 @@ import { gsap } from "gsap";
 import { GSDevTools } from "gsap/GSDevTools";
 import { ExpoScaleEase, RoughEase, SlowMo } from "gsap/EasePack";
 import { EaselPlugin } from "gsap/EaselPlugin";
+import { MorphSVGPlugin } from "gsap/MorphSVGPlugin";
 
-gsap.registerPlugin(GSDevTools, EaselPlugin, ExpoScaleEase, RoughEase, SlowMo);
+gsap.registerPlugin(GSDevTools, MorphSVGPlugin, EaselPlugin, ExpoScaleEase, RoughEase, SlowMo);
 
 const mainTL = gsap.timeline();
 
@@ -18,47 +19,67 @@ const mainTL = gsap.timeline();
 
 gsap.set("preloader #preloaderanimation", {x:0, y:0});
 
+MorphSVGPlugin.convertToPath("circle");
+
+
 function icecream(){
   const tl=gsap.timeline();
-  tl.to("#cone1", {duration:.1, autoAlpha: 1});
-  tl.to("#cone2", {duration:.1, autoAlpha: 1});
-  
-  tl.to("#cone1", {duration:.2, autoAlpha: 0});
-  tl.to("#cone3", {duration:.1, autoAlpha: 1});
-  
-  
-  tl.to("#cone3", {duration:.1, autoAlpha: 1});
-  tl.to("#cone2", {duration:.2, autoAlpha: 0});
-  
-  tl.to("#cone4", {duration:.1, autoAlpha: 1});
-  tl.to("#cone3", {duration:.2, autoAlpha: 0});
-  
-  tl.to("#cone5", {duration:.1, autoAlpha: 1});
-  tl.to("#cone4", {duration:.2, autoAlpha: 0});
-  
-  tl.to("#cone6", {duration:.1, autoAlpha: 1});
-  tl.to("#cone5", {duration:.2, autoAlpha: 0});
+  tl.to(".cone", {stagger: .3, duration:.3, autoAlpha:1, ease:"steps (10)"});
 
-  tl.to("#cone7", {duration:.1, autoAlpha: 1});
-  tl.to("#cone6", {duration:.2, autoAlpha: 0});
-
-  tl.to("#cone8", {duration:.1, autoAlpha: 1});
-  tl.to("#cone7", {duration:.2, autoAlpha: 0});
-
-  tl.to("#cone9", {duration:.1, autoAlpha: 1});
-  tl.to("#cone8", {duration:.2, autoAlpha: 0});
+  // tl.to("#cone1", {duration:.1, autoAlpha: 1});
+  // tl.to("#cone2", {duration:.1, autoAlpha: 1});
   
-  tl.to("#cone10", {duration:.1, autoAlpha: 1});
-  tl.to("#cone9", {duration:.2, autoAlpha: 0});
+  // tl.to("#cone1", {duration:.2, autoAlpha: 0});
+  // tl.to("#cone3", {duration:.1, autoAlpha: 1});
+  
+  // tl.to("#cone3", {duration:.1, autoAlpha: 1});
+  // tl.to("#cone2", {duration:.2, autoAlpha: 0});
+  
+  // tl.to("#cone4", {duration:.1, autoAlpha: 1});
+  // tl.to("#cone3", {duration:.2, autoAlpha: 0});
+  
+  // tl.to("#cone5", {duration:.1, autoAlpha: 1});
+  // tl.to("#cone4", {duration:.2, autoAlpha: 0});
+  
+  // tl.to("#cone6", {duration:.1, autoAlpha: 1});
+  // tl.to("#cone5", {duration:.2, autoAlpha: 0});
+
+  // tl.to("#cone7", {duration:.1, autoAlpha: 1});
+  // tl.to("#cone6", {duration:.2, autoAlpha: 0});
+
+  // tl.to("#cone8", {duration:.1, autoAlpha: 1});
+  // tl.to("#cone7", {duration:.2, autoAlpha: 0});
+
+  // tl.to("#cone9", {duration:.2, autoAlpha: 1});
+  // tl.to("#cone8", {duration:.1, autoAlpha: 0});
+  
+  // tl.to("#cone10", {duration:.1, autoAlpha: 1});
+  // tl.to("#cone9", {duration:.2, autoAlpha: 0});
+
+  // tl.to("#cherry",{duration:1,autoAlpha:1});
+  // tl.to("#cherry",{duration:1, morphSVG:"#cone1"});
+
+  // tl.to("#cone1",{duration:1, autoAlpha: 1});
+  // tl.to("#cone1",{morphSVG: "#cone2", duration:1});
 
   return tl;
 }
 
 function vanilla(){
   const tl=gsap.timeline();
-  tl.to("#vanilla3", {duration:.5, autoAlpha:1});
+  tl.to(".vanilla", {stagger: .3, duration:.3, autoAlpha:1, ease:"steps (10)"});
+
+  // tl.to("#vanilla1", {duration:.1, autoAlpha:1});
+  // tl.to("#vanilla2", {duration:.1, autoAlpha: 1});
+
+  // tl.to("#vanilla1", {duration:.2, autoAlpha: 0});
+  // tl.to("#vanilla3", {duration:.1, autoAlpha: 1});
+
+  // tl.to("#vanilla2",{duration:.2, autoAlpha: 0});
   return tl;
 }
+
+//both functions are playing at the same time?
 
 mainTL.add(icecream)
 .add(vanilla);
