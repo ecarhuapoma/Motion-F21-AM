@@ -5,15 +5,17 @@
     width: 100%;
     z-index: 1000;
     background-color: $white;
-    // >div{
-    //     svg{
-    //         visibility: hidden;
-    //     }
-    // }
+    
+    display: grid;
+    align-self:center;
 }
 
 .cone{
     visibility: hidden;
+}
+
+.cone10{
+    visibility: hidden;   
 }
 
 .vanilla{

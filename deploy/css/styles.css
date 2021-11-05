@@ -504,9 +504,15 @@ header ul #open h1 {
   width: 100%;
   z-index: 1000;
   background-color: #fff;
+  display: grid;
+  align-self: center;
 }
 
 .cone {
+  visibility: hidden;
+}
+
+.cone10 {
   visibility: hidden;
 }
 
