@@ -24,7 +24,9 @@ MorphSVGPlugin.convertToPath("circle");
 //   ease: "power1"
 // });
 mainTL.set(".cone", {scale: 0.75, x:60, y:0});
-mainTL.set(".cone10", {scale: 0.75, x:60,y:0});
+mainTL.set("#cone10", {scale: 0.75, x:60,y:0});
+
+mainTL.set(".stack", {scale: 0.8, x:40,y:-30});
 mainTL.set(".vanilla", {scale: 0.75, x:0,y:0});
 mainTL.set(".choc", {scale: 0.75, x:0,y:0});
 mainTL.set(".straw", {scale: 0.75, x:0,y:0});
@@ -33,9 +35,12 @@ mainTL.set(".cher", {scale: 0.75, x:0,y:0});
 
 function icecream(){
   const tl=gsap.timeline();
-  tl.to(".cone", {stagger: .3, duration:.3, autoAlpha:1, ease:"steps (1)"});
-  tl.to(".cone", {stagger: .3, duration:.3, autoAlpha:0, ease:"steps (1)"}, "-=2.5");
+  tl.to(".cone", {stagger: .3, duration:.3, autoAlpha:1, ease:"steps (9)"});
+  tl.to(".cone", {stagger: .3, duration:.3, autoAlpha:0, ease:"steps (9)"}, "-=2.5");
   tl.to("#cone10", {alpha:1});
+
+  // tl.set(".cone", {stagger: .3, autoAlpha:1});
+  // tl.set(".cone", {stagger: .4, autoAlpha:0},"-.02");
   return tl;
 }
 
@@ -62,14 +67,31 @@ function vanilla(){
   // tl.to("#vanilla3", {stagger: .3, duration:.5, autoAlpha:1});
   // tl.to("#vanilla3", {stagger: .3, duration:.5, autoAlpha:0},"+=.3");
 
-  tl.set("#vanilla2", {x: -250, y: -450});
   tl.set("#vanilla1", {x: -500, y: -300});
-  tl.set("#vanilla3", {x: 0, y: -300})
+  tl.set("#vanilla2", {x: -250, y: -450});
+  tl.set("#vanilla3", {x: 0, y: -325})
   tl.to(".vanilla", {stagger: 1, duration:.3, autoAlpha:1, ease:"steps (1)"});
+  tl.to(".vanilla", {stagger: 1, duration:.3, autoAlpha:0, ease:"steps (1)"},"-=1");
   // tl.to("#vanilla1", {stagger: .7, duration: .3, autoAlpha:0, ease:"steps (1)"}, "-=.95");
   return tl;
 }
 
+function vPlop(){
+  const tl=gsap.timeline();
+  // tl.set("#cream1", {scale: 0.75, x:60,y:0});
+  // tl.set("#cream1", {scale: 0.8, x:40,y:-30});
+  tl.to("#cream1", {autoAlpha:1});
+  tl.set("#cone10", {duration:.3, autoAlpha:0},"-=.1");
+
+  return tl;
+}
+
+function cPlop(){
+  const tl=gsap.timeline();
+  tl.set(".choc", {x:40,y:-400});
+  tl.set(".choc", {autoAlpha:1});
+  return tl;
+}
 
 // tl.to("#vanilla1", {stagger: .7, duration:.3, autoAlpha:1, ease:"steps (1)"});
 //   tl.to("#vanilla1", {stagger: .7, duration: .3, autoAlpha:0, ease:"steps (1)"}, "-=.95");
@@ -82,7 +104,9 @@ mainTL
 .add(icecream())
 .add(coneTen(),"-=.7")
 // .add(coneClose())
-.add(vanilla(),"+=1");
+.add(vanilla(),"+=1")
+.add(vPlop(),"-=.5")
+.add(cPlop());
 
 
 
