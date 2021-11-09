@@ -31,10 +31,11 @@ MorphSVGPlugin.convertToPath("circle");
 // mainTL.set("#cone8",{x:60,y:0});
 
 
-mainTL.set("#cone6",{scale:0.75, x:20, y:0});
 
-// mainTL.set("#newcream1",{autoAlpha:1});
-
+mainTL.set("#vansplash",{scale: 0.75, x:50,y:-30});
+mainTL.set("#chocsplash",{scale: 0.75, x:40,y:-50});
+mainTL.set("#strawsplash",{scale: 0.75, x:36,y:-60});
+mainTL.set("#cherrysplash",{scale: 0.75, x:33,y:-70});
 mainTL.set(".cone", {scale: 0.75, x:60, y:0});
 mainTL.set("#cone10", {scale: 0.75, x:60,y:0});
 // mainTL.set("#newpath", {autoAlpha:0});
@@ -87,7 +88,6 @@ function vanilla(){
   // tl.to(".vanilla", {stagger: .2, duration:.3, autoAlpha:1, ease:"steps (1)"},"-=1");
   // tl.to(".vanilla", {duration:.1, autoAlpha:0, ease:"steps (1)"},"-=2");
   tl.to("#vanilla1",{autoAlpha:0, duration:.4},"-=.3");
-  tl.to("#newcream1",{autoAlpha:1, duration:.3});
   
 
   //original stopmotion
@@ -104,21 +104,22 @@ function vanilla(){
 
 function vPlop(){
   const tl=gsap.timeline();
-  // tl.to("#cream1", {autoAlpha:1});
-  // tl.to("#cream1", {autoAlpha:0});
-  tl.to("#newcream1", {autoAlpha:1});
+  tl.to("#cream1", {autoAlpha:1});
+  tl.to("#vansplash",{duration:.5,autoAlpha:1, motionPath:{path:[{y:-50}]}},"-=.4");
+  tl.to("#vansplash",{duration:.5,autoAlpha:0},"-=.3");
   tl.set("#cone10", {duration:.3, autoAlpha:0},"-=.1");
+  
 
   return tl;
 }
 
 function chocolate(){
   const tl=gsap.timeline();
-  tl.set("#chocolate1", {x:40,y:-400});
+  tl.set("#chocolate1", {x:40,y:-600});
   tl.set("#chocolate2", {x:40,y:-300});
 
-  tl.to("#chocolate1",{autoAlpha:1, ease:"power1", duration:.5, motionPath:{
-    path:[{x:40,y:-400}, {x:40,y:-300}]}
+  tl.to("#chocolate1",{autoAlpha:1, ease:"power1", duration:1, motionPath:{
+    path:[{x:40,y:-600}, {x:40,y:-300}]}
   });
 
   tl.to("#chocolate1", {duration:.1, autoAlpha:0});
@@ -133,6 +134,8 @@ function cPlop(){
   const tl=gsap.timeline();
   tl.set("#cream2",{x:50,y:-47});
   tl.to("#cream2",{duration:.3,autoAlpha:1});
+  tl.to("#chocsplash",{duration:.5,autoAlpha:1, motionPath:{path:[{x:40,y:-60}]}},"-=.3");
+  tl.to("#chocsplash",{duration:1,autoAlpha:0},"-=.3");
   tl.to("#chocolate2",{duration: .3, autoAlpha:0});
   tl.to("#cream1",{duration:.3 ,autoAlpha:0});
 
@@ -168,6 +171,8 @@ function sPlop(){
   tl.set("#cream3",{x:49,y:-64});
   tl.to("#cream3",{duration:.3,autoAlpha:1});
   // tl.to("#strawberry3",{duration: .3, autoAlpha:0});
+  tl.to("#strawsplash",{duration:.5,autoAlpha:1, motionPath:{path:[{x:36,y:-80}]}},"-=.3");
+  tl.to("#strawsplash",{duration:1,autoAlpha:0},"-=.3");
   tl.to("#cream2",{duration:.3 ,autoAlpha:0});
 
   return tl;
@@ -191,20 +196,24 @@ function bigStack(){
 
   // });
 
-  tl.to("#cherry", {autoAlpha:1, duration:2, ease:"power4",
+  tl.to("#cherry", {autoAlpha:1, duration:2, ease:"power2",
     motionPath:{
       start:1,
       end:0,
       path:"#newpath",
       align:"#newpath",
       alignOrigin: [0.5, 0.5],
-      autoRotate:260}});
+      autoRotate:230}});
       
       
       
-      tl.to("#cherry-plop1",{duration:.1,autoAlpha:1},"-=.7");
-      tl.to("#cherry", {duration:.1, autoAlpha:0});
-      tl.to("#cream3",{duration: .1, autoAlpha:0},"-=.5");
+      
+      tl.to("#cherry", {duration:.1, autoAlpha:0}),"-=.3";
+      tl.to("#cherry-plop1",{duration:.1,autoAlpha:1},"-=.5");
+      tl.to("#cherrysplash",{duration:.5,autoAlpha:1, motionPath:{path:[{x:33,y:-80}]}},"-=.4");
+      tl.to("#cherrysplash",{duration:1,autoAlpha:0},"-=.3");
+      
+      tl.to("#cream3",{duration: .1, autoAlpha:0},"-=.3");
 
 
   return tl;
@@ -218,7 +227,7 @@ function finalForm(){
   tl.set("#done",{scale:.8,x:51,y:-70});
   // // tl.to("#done",{duration:1,autoAlpha:0});
   tl.to("#done",{duration:.1,autoAlpha:1});
-  tl.to("#cherry-plop1",{duration:.1,autoAlpha:0},"-=.1");
+  tl.to("#cherry-plop1",{duration:.1,autoAlpha:0});
 
   return tl;
 }
@@ -251,17 +260,22 @@ function transitionTime(){
 
 mainTL
 .add(icecream())
-.add(coneTen(),"-=.7")
-// .add(coneClose())
-.add(vanilla(),"+=1")
-.add(vPlop(),"-=.3")
+// .add(coneTen(),"-=.7")
+.add(coneTen(),"-=.6")
+.add(vanilla())
+.add(vPlop(),"-=.4")
 .add(chocolate())
-.add(cPlop(),"-=.3")
-.add(strawberry())
-.add(sPlop(),"-=.3")
+.add(cPlop())
+// .add(vanilla(),"+=.5")
+// .add(vPlop(),"-=.3")
+// .add(chocolate(),"+=.5")
+// .add(cPlop(),"-=.3")
+.add(strawberry(),"-=.6")
+// .add(sPlop(),"-=.3")
+.add(sPlop(),"-=.2")
 .add(bigStack())
 .add(finalForm())
-.add(transitionTime());
+.add(transitionTime(),"+=1");
 
 
 
