@@ -508,6 +508,10 @@ header ul #open h1 {
   align-self: center;
 }
 
+.arcs {
+  visibility: hidden;
+}
+
 .cone {
   visibility: hidden;
 }
@@ -526,6 +530,7 @@ header ul #open h1 {
 
 .stack {
   visibility: hidden;
+  z-index: 500;
 }
 
 .straw {

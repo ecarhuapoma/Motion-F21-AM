@@ -6,8 +6,21 @@
     z-index: 1000;
     background-color: $white;
     
+    
     display: grid;
     align-self:center;
+}
+
+// .preload-group{
+//     size: 50%;
+// }
+
+// #newpath{
+//     visibility: hidden;
+// }
+
+.arcs{
+    visibility: hidden;
 }
 
 .cone{
@@ -28,6 +41,7 @@
 
 .stack{
     visibility: hidden;
+    z-index: 500;
 }
 
 .straw{
@@ -41,3 +55,7 @@
 .done{
     visibility:hidden;
 }
+
+// #motionpather{
+//     visibility: hidden;
+// }
