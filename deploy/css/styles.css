@@ -466,7 +466,7 @@ header ul #cone {
   background-position: center;
   z-index: 10;
   margin-top: -30px;
-  background-image: url(/deploy/img/cone.jpg);
+  background-image: url(/deploy/img/cherry2-01.png);
 }
 header ul #cream {
   grid-area: title2;
@@ -506,6 +506,13 @@ header ul #open h1 {
   background-color: #fff;
   display: grid;
   align-self: center;
+}
+
+#thetype {
+  stroke-width: 1px;
+  height: 100vh;
+  stroke: black;
+  visibility: hidden;
 }
 
 .splash {

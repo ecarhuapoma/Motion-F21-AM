@@ -6,11 +6,14 @@
 // gsap.registerPlugin(GSDevTools,DrawSVGPlugin, MotionPathPlugin);
 
 import { gsap } from "gsap";
-import { GSDevTools } from "gsap/GSDevTools";
+// import { GSDevTools } from "gsap/GSDevTools";
 import { MorphSVGPlugin } from "gsap/MorphSVGPlugin";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
+import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
+// import gsapCore from "gsap/gsap-core";
 
-gsap.registerPlugin(GSDevTools, MotionPathPlugin, MorphSVGPlugin); 
+// gsap.registerPlugin(GSDevTools, MotionPathPlugin, MorphSVGPlugin, DrawSVGPlugin); 
+gsap.registerPlugin(MotionPathPlugin, MorphSVGPlugin, DrawSVGPlugin); 
 
 const mainTL = gsap.timeline();
 
@@ -29,6 +32,8 @@ MorphSVGPlugin.convertToPath("circle");
 // mainTL.set("#cone6",{x:60,y:0});
 // mainTL.set("#cone7",{x:50,y:0});
 // mainTL.set("#cone8",{x:60,y:0});
+
+
 
 
 
@@ -54,6 +59,10 @@ mainTL.set("#spath", {autoAlpha:0, x:720, y:20});
 
 function icecream(){
   const tl=gsap.timeline();
+
+  // tl.set("#thetype",{autoAlpha:1});
+  // tl.from("#thetype",{duration:10, drawSVG:true}, 1);
+
   tl.to(".cone", {stagger: .3, duration:.3, autoAlpha:1, ease:"steps (9)"});
   tl.to(".cone", {stagger: .3, duration:.3, autoAlpha:0, ease:"steps (9)"}, "-=2.5");
   tl.to("#cone10", {alpha:1});
@@ -239,17 +248,12 @@ function transitionTime(){
 
   tl.to("#preloader",{duration:2, autoAlpha:0},"-=2");
 
-  // tl.to("done",{duration:3, ease:"power1",motionPath:{
-  //   path:[{x:51,y:-400}, {x:51,y:-300}]}
-  // });
-  
-  // tl.to("#preloader",{duration:2,autoAlpha:0});
-
 
   return tl;
 }
 
 
+// 
 
 // tl.to("#vanilla1", {stagger: .7, duration:.3, autoAlpha:1, ease:"steps (1)"});
 //   tl.to("#vanilla1", {stagger: .7, duration: .3, autoAlpha:0, ease:"steps (1)"}, "-=.95");
@@ -275,25 +279,35 @@ mainTL
 .add(sPlop(),"-=.2")
 .add(bigStack())
 .add(finalForm())
-.add(transitionTime(),"+=1");
+.add(transitionTime(),"+=1")
+.add(oldStuff(),"-=1");
 
 
 
-// //header appears
-// mainTL.from("header ul #open",{duration:.1,alpha:0})
-// .from("header ul #open h1",{duration:.3,alpha:0})
-// .from("header ul #wiggy, #cream",{duration:.3,alpha:0,scale:.5})
-// .from("header ul #cone",{duration:.2,alpha:0,scale:.5})
 
-// //buttons appear
-// .from("section ul #directions, #menu, #about, #events",{duration:.5,alpha:0})
-// .from("#body",{duration:.5,alpha:0});
+function oldStuff(){
+  const tl=gsap.timeline();
 
-// //rotating image
-// const storeTL = gsap.timeline({repeat:-1});
-// storeTL.from("#open",{duration:120,backgroundPosition: "-2247px 0px", ease:"none"});
+//header appears
+tl.from("header ul #open",{duration:.1,alpha:0})
+.from("header ul #open h1",{duration:.3,alpha:0})
+.from("header ul #wiggy, #cream",{duration:.3,alpha:0,scale:.5})
+.from("header ul #cone",{duration:.2,alpha:0,scale:.5})
+
+//buttons appear
+.from("section ul #directions, #menu, #about, #events",{duration:.5,alpha:0})
+.from("#body",{duration:.5,alpha:0});
+
+//rotating image
+const storeTL = gsap.timeline({repeat:-1});
+storeTL.from("#open",{duration:120,backgroundPosition: "-2247px 0px", ease:"none"});
+
+  return tl;
+}
 
 
-GSDevTools.create();
+
+// GSDevTools.create();
 MotionPathPlugin.create();
 MorphSVGPlugin.create();
+DrawSVGPlugin.create();
