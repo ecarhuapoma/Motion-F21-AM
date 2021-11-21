@@ -556,6 +556,9 @@ header ul #open h1 {
   visibility: hidden;
 }
 
+section {
+  padding-top: 50px;
+}
 section ul {
   display: grid;
   grid-template-columns: 16px 50% auto 16px;

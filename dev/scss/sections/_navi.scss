@@ -1,8 +1,9 @@
 section{
 
     // margin-top: 50px;
+    padding-top: 50px;
     ul{
-
+        
         display: grid;
         grid-template-columns: 16px 50% auto 16px;
         grid-template-areas: ". dir men ."
